@@ -88,7 +88,7 @@ btnHold.addEventListener('click', function () {
   
     // document.getElementById
     //  2. check if score is at least 100
-    if (scores[activePlayer] >= 10) {
+    if (scores[activePlayer] >= 50) {
       //  finish the game
       playing = false
       document.querySelector(`.player--${activePlayer}`).classList.add('player--winner');
