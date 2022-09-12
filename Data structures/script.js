@@ -1,8 +1,5 @@
 "use strict";
 
-// Data needed for a later exercise
-// const flights =
-//   "_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30";
 
 //   /*
 //   Destructuring is a way of unpacking values from an array/object into variables
@@ -704,7 +701,7 @@ MAPS:   Better performance
 
 /* ============== WORKING WITH STRINGS ============ */
 
-const airLine = "Air Peace Nigeria";
+/* const airLine = "Air Peace Nigeria";
 const plane = "Boeing-A320";
 
 console.log(plane[0]);
@@ -719,7 +716,7 @@ console.log(plane.indexOf("-"));
 console.log(plane.indexOf("A320"));
 
 // last index
-console.log(airLine.lastIndexOf("a"));
+console.log(airLine.lastIndexOf("a")); */
 
 // the slice method returns the position at which the extraction will start
 
@@ -730,7 +727,7 @@ indexStart: the index of the first character to include in the returned substrin
 indexEnd: the index of the first character to exclude from the returnded substring
 
 */
-console.log(airLine.slice(4, 9));
+/* console.log(airLine.slice(4, 9));
 
 // extracting the first word
 console.log(airLine.slice(0, airLine.indexOf(" ")));
@@ -831,9 +828,9 @@ const checkBaggage = function (items) {
   } else {
     console.log("Welcome aboard");
   }
-};
+}; */
 
-checkBaggage("I have a laptop, some Food and a Pocket KNife");
+/* checkBaggage("I have a laptop, some Food and a Pocket KNife");
 checkBaggage("A phone and and ear-pod");
 checkBaggage("Got some snacks and a GUN for protection");
 
@@ -851,9 +848,9 @@ const newName = ["Mr.", firstName, lastName.toUpperCase()].join(" ");
 console.log(newName);
 // const passengerCorrect = passengerLower[0].toUpperCase() + passengerLower.slice(1)
 const capitalizeName = (names) => {
-  const arrNames = names.split(" ");
+  const arrNames = names.split(" "); */
   // console.log(arrNames);
-  let newNameArr = [];
+ /*  let newNameArr = [];
   for (const name of arrNames) {
     // console.log(name);
     // const capitalNames = name[0].toUpperCase() + name.slice(1);
@@ -870,10 +867,10 @@ const capitalizeName = (names) => {
 capitalizeName(
   "felix joseph ewulu adamma galadima, adamu, james, pishceh, meeha"
 );
-capitalizeName("felix ewulu");
+capitalizeName("felix ewulu"); */
 
 // Padding a string
-const message = "Go to gate 21!";
+/* const message = "Go to gate 21!";
 console.log(message.padEnd(22, "+").padStart(30, "-"));
 console.log("Felix".padEnd(22, "+"));
 
@@ -900,14 +897,14 @@ const planesInLine = (n) => {
 
 planesInLine(4);
 planesInLine(8);
-planesInLine(2);
+planesInLine(2); */
 
 // CODING CHALLENGE
-
+/* 
 document.body.append(document.createElement("textarea"));
 const newElement = document.body.append(document.createElement("button"));
 
-const text = document.querySelector("textarea").value;
+const text = document.querySelector("textarea").value */;
 
 /*
 underscore_case
@@ -940,7 +937,7 @@ delayed_departures
 
 
 // CORRECTIONS
-document.querySelector('button').addEventListener('click', function () {
+/* document.querySelector('button').addEventListener('click', function () {
   const text = document.querySelector("textarea").value;
   const rows = text.split('\n');
   console.log(rows);
@@ -951,7 +948,36 @@ document.querySelector('button').addEventListener('click', function () {
     console.log(`${output.padEnd(20)}${"✅".repeat(i + 1)}`);
   }
 
-})
+}) */
+
+
+
+// Data needed for a later exercise
+const flights =
+`_Delayed_Departure;fao93766109;txl2133758440;11:25
++ _Arrival; bru0943384722; fao93766109; 11:45
++ _Delayed_Arrival; hel7439299980; fao93766109; 12:05
++ _Departure; fao93766109; lis2323639855; 12:30`;
+
+
+// const flightArr = flights.split('+');
+
+for (const flight of flights.split('+')) {
+  const [type, from, to, time] = flight.trim().split(/;/g);
+  // console.log(first.replace(/_/g, ' '), second.slice(0, 4).toUpperCase(), third.slice(0, 4), fourth);
+  const notice =
+    `${type.startsWith('_Delayed') ?
+      '🛑' : ''}${type.replaceAll(
+        '_', ' ')} from ${from.slice(0, 3).toUpperCase()} to ${to.slice(0, 3).toUpperCase()} (${time.replace(
+          ':', 'h')})`.padStart(45);
+  console.log(notice);
+    
+}
+
+
+
+
+
 
 
 
