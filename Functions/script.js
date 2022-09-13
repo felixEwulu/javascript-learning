@@ -28,29 +28,29 @@
 
 // HOW PASSING ARGUMENT WORKS
 
-let flight = 'LH234';
-const felix = {
-    name: 'Felix Sam',
-    passport: 2343455668949
-}
+// let flight = 'LH234';
+// const felix = {
+//     name: 'Felix Sam',
+//     passport: 2343455668949
+// }
 
-const checkIn = function (flightNum, passenger) {
-    console.log(flightNum);
-    flightNum = 'LH888';
-    console.log(flightNum);
-    // pass by reference gets mutated
-    passenger.name = 'Mr. ' + passenger.name;
+// const checkIn = function (flightNum, passenger) {
+//     console.log(flightNum);
+//     flightNum = 'LH888';
+//     console.log(flightNum);
+//     // pass by reference gets mutated
+//     passenger.name = 'Mr. ' + passenger.name;
 
-    if (passenger.passport === 2343455668949) {
-        // alert('Checked in')
-    } else {
-        // alert('Wrong passport')
-    }
-}
+//     if (passenger.passport === 2343455668949) {
+//         // alert('Checked in')
+//     } else {
+//         // alert('Wrong passport')
+//     }
+// }
 
-checkIn(flight, felix);
-console.log(flight);
-console.log(felix);
+// checkIn(flight, felix);
+// console.log(flight);
+// console.log(felix);
 
 // Is the same as doing...
 // const flightNum = flight;
@@ -87,28 +87,28 @@ This is only possible because of first-class functions
 
 // Functions Accepting Callback functions
 
-const oneWord = function (str) {
-    return str.replace(/ /g, '').toLowerCase();
-}
+// const oneWord = function (str) {
+//     return str.replace(/ /g, '').toLowerCase();
+// }
 
-const upperFirstWord = function (str) {
-    const [first, ...others] = str.split(' ');
-    return [first.toUpperCase(), ...others].join(' ')
-};
+// const upperFirstWord = function (str) {
+//     const [first, ...others] = str.split(' ');
+//     return [first.toUpperCase(), ...others].join(' ')
+// };
 
 
 // Higher-order function
-const transformer = function (str, fn) {
-    console.log(`Original string: ${str}`);
-    console.log(`Transformed string: ${fn(str)}`);
+// const transformer = function (str, fn) {
+//     console.log(`Original string: ${str}`);
+//     console.log(`Transformed string: ${fn(str)}`);
 
-    console.log(`Transformed by: ${fn.name}`);
+//     console.log(`Transformed by: ${fn.name}`);
 
-}
+// }
 
-transformer('Javascript is the best!', upperFirstWord);
+// transformer('Javascript is the best!', upperFirstWord);
 
-transformer('Javascript is the best!', oneWord);
+// transformer('Javascript is the best!', oneWord);
 
 // const high5 = function () {
 //     console.log('Hello 👋');
@@ -119,53 +119,53 @@ transformer('Javascript is the best!', oneWord);
 
 // function returning functions
 
-const greet = function (greeting) {
-    return function (name) {
-     console.log(`${greeting} ${name}`);
-    }
-}
+// const greet = function (greeting) {
+//     return function (name) {
+//      console.log(`${greeting} ${name}`);
+//     }
+// }
 
-const greeterHey = greet('Hey')
-greeterHey('Jonas')
-greeterHey('Felix')
+// const greeterHey = greet('Hey')
+// greeterHey('Jonas')
+// greeterHey('Felix')
 
-// Using arrow functions
-const gret = greeting => name => console.log(`${greeting} ${name}`);
+// // Using arrow functions
+// const gret = greeting => name => console.log(`${greeting} ${name}`);
 
 
-gret('Hi')('Felix')
+// gret('Hi')('Felix')
 
 
 
 // Call and Apply method
 
-const airPeace = {
-    airline: 'Air Peace',
-    iataCode: 'AP',
-    bookings: [],
+// const airPeace = {
+//     airline: 'Air Peace',
+//     iataCode: 'AP',
+//     bookings: [],
 
-    book(flightNum, name) {
-        const seatNo = Math.floor(Math.random() * 300) + 1;
+//     book(flightNum, name) {
+//         const seatNo = Math.floor(Math.random() * 300) + 1;
 
-        console.log(`${name} booked a seat number ${seatNo} on ${this.airline} flight ${this.iataCode}${flightNum}`);
+//         console.log(`${name} booked a seat number ${seatNo} on ${this.airline} flight ${this.iataCode}${flightNum}`);
         
-        this.bookings.push({ flight: `${this.iataCode}${flightNum}`, seatNo: seatNo, name})
-    }
-};
+//         this.bookings.push({ flight: `${this.iataCode}${flightNum}`, seatNo: seatNo, name})
+//     }
+// };
 
-airPeace.book(20, 'Felix Ewulu')
-airPeace.book(230, 'Jonas Smith')
-console.log(airPeace.bookings);
+// airPeace.book(20, 'Felix Ewulu')
+// airPeace.book(230, 'Jonas Smith')
+// console.log(airPeace.bookings);
 
 
-const eurowings = {
-    airline: 'eurowings',
-    iataCode: 'EW',
+// const eurowings = {
+//     airline: 'eurowings',
+//     iataCode: 'EW',
     
-    bookings: [],
-}
+//     bookings: [],
+// }
 
-const book = airPeace.book;
+// const book = airPeace.book;
 // does not work
 // book(23, 'Natalia wills')
 
@@ -174,12 +174,12 @@ const book = airPeace.book;
 
 // Call method
 // The call method calls the book function and sets its othis keyword to eurowings
-book.call(eurowings, 30, 'Phil Jones')
-console.log(eurowings);
+// book.call(eurowings, 30, 'Phil Jones')
+// console.log(eurowings);
 
-// this keyword points to airpeace
-book.call(airPeace, 349, 'Samoa Joe');
-console.log(airPeace);
+// // this keyword points to airpeace
+// book.call(airPeace, 349, 'Samoa Joe');
+// console.log(airPeace);
 
 // We can now create as many airlines as possible
 // const swiss = {
@@ -231,62 +231,82 @@ the this keyword is BOUND
 
 
 // With Event Listeners
-airPeace.planes = 300;
-airPeace.buyPlane = function () {
-    console.log(this);
+// airPeace.planes = 300;
+// airPeace.buyPlane = function () {
+//     console.log(this);
 
-    this.planes++;
-    console.log(this.planes);
-}
+//     this.planes++;
+//     console.log(this.planes);
+// }
 
-// airPeace.buyPlane()
+// // airPeace.buyPlane()
 
-// this is pointing to the element in which the handler is attached to
-document.querySelector('.buy').addEventListener('click', airPeace.buyPlane.bind(airPeace))
+// // this is pointing to the element in which the handler is attached to
+// document.querySelector('.buy').addEventListener('click', airPeace.buyPlane.bind(airPeace))
 
-// Partial Application
-const addTax = (rate, value) => value + value * rate;
-console.log(addTax(0.1, 100));
+// // Partial Application
+// const addTax = (rate, value) => value + value * rate;
+// console.log(addTax(0.1, 100));
 
-const addVAT = addTax.bind(null, 0.23);
-// addVAT =  value => value + value * 0.23;
+// const addVAT = addTax.bind(null, 0.23);
+// // addVAT =  value => value + value * 0.23;
 
-// The order of the argument is very important
-console.log(addVAT(100));
-console.log(addVAT(30));
+// // The order of the argument is very important
+// console.log(addVAT(100));
+// console.log(addVAT(30));
 
 
-// We use the bind method to create a more specific function from a general function
+// // We use the bind method to create a more specific function from a general function
 
-// rewriting the code using return function
+// // rewriting the code using return function
 
-const calcTax = (rate) => {
+// const calcTax = (rate) => {
     
-    return function (value) {
-        const addVAT = value + (value * rate);
-        console.log(addVAT);
+//     return function (value) {
+//         const addVAT = value + (value * rate);
+//         console.log(addVAT);
+//     }
+// }
+
+// const callFunc = calcTax(0.23);
+
+// callFunc(100);
+
+
+
+// Coding Challenge 1
+const pollBtn = document.querySelector('.poll');
+
+const poll = {
+    question: 'What is your favourite programming language?',
+    options: ['0: Javascript', '1: Python', '2: Rust', '3: C++'],
+
+    answers: new Array(4).fill(0),
+
+    registerNewAnswer() {
+        const userAnswer = Number(
+            // Get the answer
+          prompt(
+            `${this.question}\n${this.options.join('\n')}\n(Write option number)`)
+        );
+
+        // Register answer
+        // typeof userAnswer === 'number' && userAnswer < this.answers.length && this.answers[userAnswer]++; 
+
+        // console.log(this.answers);
+        // ~
+        // return userAnswer;
     }
 }
 
-const callFunc = calcTax(0.23);
-
-callFunc(100);
 
 
 
+const getUserInput = poll.registerNewAnswer
 
+console.log(poll);
 
-
-
-
-
-
-
-
-
-
-
-
+pollBtn.addEventListener('click', getUserInput.bind(poll))
 
 
 

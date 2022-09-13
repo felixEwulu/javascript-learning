@@ -583,18 +583,18 @@ Just like an array, they are iterables
 
 // MAP ITERATION
 
-// const question = new Map([
-//   ['question', 'What is the best programming language in the world?'],
-//   [1, 'C'],
-//   [2, 'Java'],
-//   [3, 'Javascript'],
-//   ['correct', 3],
-//   [true, 'Correct'],
-//   [false, 'Try agagin!']
+const question = new Map([
+  ['question', 'What is the best programming language in the world?'],
+  [1, 'C'],
+  [2, 'Java'],
+  [3, 'Javascript'],
+  ['correct', 3],
+  [true, 'Correct'],
+  [false, 'Try agagin!']
 
-// ]);
+]);
 
-// console.log(question);
+console.log(question);
 
 // // Convert object to map
 // console.log(Object.entries(game.odds));
