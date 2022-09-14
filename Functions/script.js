@@ -275,38 +275,101 @@ the this keyword is BOUND
 
 
 // Coding Challenge 1
-const pollBtn = document.querySelector('.poll');
+// const pollBtn = document.querySelector('.poll');
 
-const poll = {
-    question: 'What is your favourite programming language?',
-    options: ['0: Javascript', '1: Python', '2: Rust', '3: C++'],
+// const poll = {
+//     question: 'What is your favourite programming language?',
+//     options: ['0: Javascript', '1: Python', '2: Rust', '3: C++'],
 
-    answers: new Array(4).fill(0),
+//     answers: new Array(4).fill(0),
 
-    registerNewAnswer() {
-        const userAnswer = Number(
-            // Get the answer
-          prompt(
-            `${this.question}\n${this.options.join('\n')}\n(Write option number)`)
-        );
+//     registerNewAnswer() {
+//         const userAnswer = Number(
+//             // Get the answer
+//             prompt(
+//                 `${this.question}\n${this.options.join('\n')}\n(Write option number)`)
+//         );
 
-        // Register answer
-        // typeof userAnswer === 'number' && userAnswer < this.answers.length && this.answers[userAnswer]++; 
+//         // Register answer
+//         typeof userAnswer === 'number' && userAnswer < this.answers.length && this.answers[userAnswer]++;
 
-        // console.log(this.answers);
-        // ~
-        // return userAnswer;
-    }
-}
+//         this.displayResults()
+//         this.displayResults('string')
+
+//         // console.log(this.answers);
+//         // for (const [key, value] of this.options.entries()) {
+//         //     // console.log(key, value);
+//         //     if (key === userAnswer) {
+//         //         this.answers[key]++
+//         // console.log(this.answers);
+
+//         //     }
+//         // }
+//         // return userAnswer;
+//     },
+//     displayResults(type = 'array') {
+//         if (type === 'array') {
+//             console.log(this.answers);
+//         } else if (type === 'string') {
+//             console.log(`Poll results are ${this.answers.join(', ')}`);
+//         }
+//     }
+// }
 
 
 
 
-const getUserInput = poll.registerNewAnswer
+//     const getUserInput = poll.registerNewAnswer
 
-console.log(poll);
+//     console.log(poll);
 
-pollBtn.addEventListener('click', getUserInput.bind(poll))
+//     pollBtn.addEventListener('click', getUserInput.bind(poll))
 
 
 
+
+    // IMMEDIATELY INVOKED FUNCTION EXPRESSION
+    /*
+     It runs only once
+    */
+
+    // (function oneCe () {
+    //     console.log('would run just once');
+    // })();
+
+
+
+
+// BallonDor vote
+
+
+
+const BallonDor = {
+  question: "Who is your favourite",
+  players: [
+    "0: Robert Lewandowski",
+    "1: Erling Harland",
+    "2: Cristiano Ronaldo",
+    "3: Kylian Mbappe",
+  ],
+  goalKeepers: ["0: De gea", "1: Pickford", "2: Courtous", "3: Ederson"],
+  puskas: ["0: Neymar", "1: Richarlson", "2: Anthony", "3: James"],
+
+  playerVotes: new Array(4).fill(0),
+  goalKeeperVotes: new Array(4).fill(0),
+  puskasVotes: new Array(4).fill(0),
+
+  registerVote() {
+    
+    //   get user input
+    const playerVote = Number(
+      prompt(`${this.question} player?\n${this.players.join("\n")}`));
+      
+    //   check and validate user input
+      typeof playerVote === 'number' && playerVote < this.playerVotes.length && this.playerVotes[playerVote]++;   
+
+      console.log(this.playerVotes);
+  },
+};
+
+BallonDor.registerVote()
