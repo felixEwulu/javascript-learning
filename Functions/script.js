@@ -383,10 +383,98 @@ let f;
 
 const g = function () {
   const a = 20;
+  const b = 12
   f = function () {
     console.log(a * 10);
   };
 };
 
+const h = function () {
+  let b = 2;
+  f = function () {
+    console.log(b * 5);
+  }
+    
+}
+
 g();
 f();
+// console.dir(f)
+
+// re-assigning f function
+h();
+f();
+// console.dir(f);
+
+
+// example 2
+// const boardPassengers = function (n, wait) {
+//   const perGroup = n / 3;
+
+//   // the set timeout function was created independently but it still remembers the variables in its parent scope
+//   setTimeout(function () {
+//     console.log(`We are now boarding all ${n} passengers`);
+//     console.log(`There are 3 groups, each with ${perGroup} passengers`);
+//   }, wait * 1000)
+
+//   console.log(`Will start boarding in ${wait} seconds`);
+// }
+
+// boardPassengers(150, 5)
+
+// setTimeout(function () {
+//   console.log('Timer');
+// }, 5000);
+
+
+// Closures have priority over the scope chain
+
+
+
+
+// CODING CHALLENGE
+
+
+// let blue;
+
+// const change = (function () {
+//   const header = document.querySelector('h1');
+//   header.style.color = 'red'
+//   blue = function () {
+//     header.style.color = 
+//       header.style.color === 'red' ? 'blue' : 'red'
+//   }
+
+// })();
+
+// document.body.addEventListener('click', blue);
+
+
+// Shorter way
+(function () {
+  const header = document.querySelector("h1");
+  header.style.color = "red";
+  
+  document.body.addEventListener('click', function () {
+    header.style.color =
+      header.style.color === 'red' ? 'blue' : 'red'
+  })
+
+})();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
