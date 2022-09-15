@@ -7,7 +7,7 @@
 //     flightNum,
 //     numPassengers = 1,
 //     price = 100 * numPassengers) {
-    
+
 //     const booking = {
 //         flightNum,
 //         numPassengers,
@@ -22,9 +22,6 @@
 // createBooking('LH123', 2);
 // createBooking('LH123', 5);
 // createBooking('LH123', undefined, 150);
-
-
-
 
 // HOW PASSING ARGUMENT WORKS
 
@@ -56,7 +53,6 @@
 // const flightNum = flight;
 // const passenger = felix;
 
-
 // const newPassport = function (person) {
 //     console.log(person);
 //     person.passport = Math.floor(Math.random() * 222222222);
@@ -67,7 +63,6 @@
 // checkIn(flight, felix)
 
 // Javascript does not have pass by reference
-
 
 /* 
 JS treats functions as first-class citizens: means that functions are values
@@ -84,7 +79,6 @@ This is only possible because of first-class functions
 
 */
 
-
 // Functions Accepting Callback functions
 
 // const oneWord = function (str) {
@@ -95,7 +89,6 @@ This is only possible because of first-class functions
 //     const [first, ...others] = str.split(' ');
 //     return [first.toUpperCase(), ...others].join(' ')
 // };
-
 
 // Higher-order function
 // const transformer = function (str, fn) {
@@ -116,7 +109,6 @@ This is only possible because of first-class functions
 
 // document.body.addEventListener('click', high5)
 
-
 // function returning functions
 
 // const greet = function (greeting) {
@@ -132,10 +124,7 @@ This is only possible because of first-class functions
 // // Using arrow functions
 // const gret = greeting => name => console.log(`${greeting} ${name}`);
 
-
 // gret('Hi')('Felix')
-
-
 
 // Call and Apply method
 
@@ -148,7 +137,7 @@ This is only possible because of first-class functions
 //         const seatNo = Math.floor(Math.random() * 300) + 1;
 
 //         console.log(`${name} booked a seat number ${seatNo} on ${this.airline} flight ${this.iataCode}${flightNum}`);
-        
+
 //         this.bookings.push({ flight: `${this.iataCode}${flightNum}`, seatNo: seatNo, name})
 //     }
 // };
@@ -157,18 +146,16 @@ This is only possible because of first-class functions
 // airPeace.book(230, 'Jonas Smith')
 // console.log(airPeace.bookings);
 
-
 // const eurowings = {
 //     airline: 'eurowings',
 //     iataCode: 'EW',
-    
+
 //     bookings: [],
 // }
 
 // const book = airPeace.book;
 // does not work
 // book(23, 'Natalia wills')
-
 
 // manually defining the this keyword
 
@@ -200,13 +187,11 @@ This is only possible because of first-class functions
 // book.call(virgin, 30, 'Gladys Ewulu')
 // book.call(virgin, 34, 'Chidinma Ewulu')
 
-
 // THE APPLY METHOD
 /* 
 It doest receive a list of the arguments, rather it takes an array of the arguments
 ⭕⭕⭕ NO LONGER USED IN MODERN JAVASCRIPT SYNTAX
 */
-
 
 // BIND METHOD
 /* 
@@ -228,7 +213,6 @@ the this keyword is BOUND
 // bookAP7('Samoa jajuar')
 // bookAP7('Mike Afor')
 // bookAP7('Jobe Ewulu')
-
 
 // With Event Listeners
 // airPeace.planes = 300;
@@ -255,13 +239,12 @@ the this keyword is BOUND
 // console.log(addVAT(100));
 // console.log(addVAT(30));
 
-
 // // We use the bind method to create a more specific function from a general function
 
 // // rewriting the code using return function
 
 // const calcTax = (rate) => {
-    
+
 //     return function (value) {
 //         const addVAT = value + (value * rate);
 //         console.log(addVAT);
@@ -271,8 +254,6 @@ the this keyword is BOUND
 // const callFunc = calcTax(0.23);
 
 // callFunc(100);
-
-
 
 // Coding Challenge 1
 // const pollBtn = document.querySelector('.poll');
@@ -316,60 +297,96 @@ the this keyword is BOUND
 //     }
 // }
 
-
-
-
 //     const getUserInput = poll.registerNewAnswer
 
 //     console.log(poll);
 
 //     pollBtn.addEventListener('click', getUserInput.bind(poll))
 
-
-
-
-    // IMMEDIATELY INVOKED FUNCTION EXPRESSION
-    /*
+// IMMEDIATELY INVOKED FUNCTION EXPRESSION
+/*
      It runs only once
     */
 
-    // (function oneCe () {
-    //     console.log('would run just once');
-    // })();
-
-
-
+// (function oneCe () {
+//     console.log('would run just once');
+// })();
 
 // BallonDor vote
 
+// const BallonDor = {
+//   question: "Who is your favourite",
+//   players: [
+//     "0: Robert Lewandowski",
+//     "1: Erling Harland",
+//     "2: Cristiano Ronaldo",
+//     "3: Kylian Mbappe",
+//   ],
+//   goalKeepers: ["0: De gea", "1: Pickford", "2: Courtous", "3: Ederson"],
+//   puskas: ["0: Neymar", "1: Richarlson", "2: Anthony", "3: James"],
 
+//   playerVotes: new Array(4).fill(0),
+//   goalKeeperVotes: new Array(4).fill(0),
+//   puskasVotes: new Array(4).fill(0),
 
-const BallonDor = {
-  question: "Who is your favourite",
-  players: [
-    "0: Robert Lewandowski",
-    "1: Erling Harland",
-    "2: Cristiano Ronaldo",
-    "3: Kylian Mbappe",
-  ],
-  goalKeepers: ["0: De gea", "1: Pickford", "2: Courtous", "3: Ederson"],
-  puskas: ["0: Neymar", "1: Richarlson", "2: Anthony", "3: James"],
+//   registerVote() {
 
-  playerVotes: new Array(4).fill(0),
-  goalKeeperVotes: new Array(4).fill(0),
-  puskasVotes: new Array(4).fill(0),
+//     //   get user input
+//     const playerVote = Number(
+//       prompt(`${this.question} player?\n${this.players.join("\n")}`));
 
-  registerVote() {
-    
-    //   get user input
-    const playerVote = Number(
-      prompt(`${this.question} player?\n${this.players.join("\n")}`));
-      
-    //   check and validate user input
-      typeof playerVote === 'number' && playerVote < this.playerVotes.length && this.playerVotes[playerVote]++;   
+//     //   check and validate user input
+//       typeof playerVote === 'number' && playerVote < this.playerVotes.length && this.playerVotes[playerVote]++;
 
-      console.log(this.playerVotes);
-  },
+//       console.log(this.playerVotes);
+//   },
+// };
+
+// BallonDor.registerVote()
+
+/* 
+************************ CLOSURES *******************
+A closure makes a function remember all the variables that exist at the function's birth-place
+A function always has access to the variable environment of the execution context in which it was created even
+after the execution context of the function is gone.
+
+The closure has priority over the scope chain
+
+A closure gives a function access to all the variables of its parent function, even after that parent function...
+has returned. The function keeps a reference to its outer scope, which preserves the scope chain throughout time.
+
+A closure is like a backpack that a function carries around wherever it goes. This backpack has all the variables that
+were present in the environment where the function was created. 
+
+*/
+
+const secureBooking = function () {
+  let passengerCount = 0;
+  let clickTracker = 0;
+
+  return function () {
+    passengerCount++;
+    clickTracker++;
+    console.log(`${passengerCount} passengers`);
+    console.log(`${clickTracker} clicks`);
+  };
 };
 
-BallonDor.registerVote()
+const booker = secureBooking();
+booker();
+booker();
+booker();
+
+// console.dir(booker)
+
+let f;
+
+const g = function () {
+  const a = 20;
+  f = function () {
+    console.log(a * 10);
+  };
+};
+
+g();
+f();
